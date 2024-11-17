@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import AddRecipeForm from "./components/AddRecipeForm";
+import { AddRecipeForm } from "./components/AddRecipeForm";
 import RecipeList from "./components/RecipeList";
-import RecipeDetails from "./components/RecipeDetails";
-import EditRecipeForm from "./components/EditRecipeForm";
+import { RecipeDetails } from "./components/RecipeDetails";
+import { EditRecipeForm } from "./components/EditRecipeForm";
+import SearchBar from "./components/SearchBar";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
             path="/"
             element={
               <>
+                <SearchBar />
                 <AddRecipeForm />
                 <RecipeList />
               </>
@@ -35,4 +37,5 @@ const App = () => {
     </BrowserRouter>
   );
 };
+
 export default App;
