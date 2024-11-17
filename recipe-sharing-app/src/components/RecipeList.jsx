@@ -1,6 +1,6 @@
 import { useRecipeStore } from "./recipeStore";
 
-const RecipeList = () => {
+export const RecipeList = () => {
   const recipes = useRecipeStore((state) => state.recipes);
 
   return (
