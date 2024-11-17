@@ -23,8 +23,8 @@ const EditRecipeForm = () => {
     }
   }, [recipe]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     if (!recipe) return;
 
     updateRecipe(recipe.id, formData);
