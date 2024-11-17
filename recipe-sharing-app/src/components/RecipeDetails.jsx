@@ -26,7 +26,7 @@ const RecipeDetails = () => {
     <Card className="max-w-2xl mx-auto">
       <CardHeader>
         <CardTitle className="text-2xl">{recipe.title}</CardTitle>
-        {recipe.prepTime}
+        {recipe.id}
         <div className="text-sm text-gray-500">
           Prep Time: {recipe.prepTime} mins | Cook Time: {recipe.cookTime} mins
         </div>
