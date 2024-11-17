@@ -11,10 +11,7 @@ const App = () => {
     <BrowserRouter>
       <div className="container mx-auto px-4 py-8">
         <nav className="mb-8">
-          <Link
-            to="/"
-            className="text-3xl font-bold hover:text-blue-500 transition-colors"
-          >
+          <Link to="/" className="text-3xl font-bold hover:text-blue-500">
             Recipe Sharing App
           </Link>
         </nav>
@@ -23,11 +20,13 @@ const App = () => {
           <Route
             path="/"
             element={
-              <>
+              <div className="space-y-8">
                 <SearchBar />
                 <AddRecipeForm />
+                <FavoritesList />
+                <RecommendationsList />
                 <RecipeList />
-              </>
+              </div>
             }
           />
           <Route path="/recipe/:id" element={<RecipeDetails />} />
