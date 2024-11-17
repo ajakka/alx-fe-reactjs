@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecipeStore } from "../store/recipeStore";
 
-export const DeleteRecipeButton = ({ recipeId }) => {
+const DeleteRecipeButton = ({ recipeId }) => {
   const navigate = useNavigate();
   const deleteRecipe = useRecipeStore((state) => state.deleteRecipe);
 
@@ -22,3 +22,5 @@ export const DeleteRecipeButton = ({ recipeId }) => {
     </button>
   );
 };
+
+export default DeleteRecipeButton;

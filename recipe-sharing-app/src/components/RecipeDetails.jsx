@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useRecipeStore } from "../store/recipeStore";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
-export const RecipeDetails = () => {
+const RecipeDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const recipe = useRecipeStore((state) => state.getRecipeById(Number(id)));
@@ -26,6 +26,7 @@ export const RecipeDetails = () => {
     <Card className="max-w-2xl mx-auto">
       <CardHeader>
         <CardTitle className="text-2xl">{recipe.title}</CardTitle>
+        {recipe.prepTime}
         <div className="text-sm text-gray-500">
           Prep Time: {recipe.prepTime} mins | Cook Time: {recipe.cookTime} mins
         </div>
@@ -55,3 +56,5 @@ export const RecipeDetails = () => {
     </Card>
   );
 };
+
+export default RecipeDetails;

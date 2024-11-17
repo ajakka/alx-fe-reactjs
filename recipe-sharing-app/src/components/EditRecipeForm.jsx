@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useRecipeStore } from "./recipeStore";
 
-export const EditRecipeForm = () => {
+const EditRecipeForm = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const recipe = useRecipeStore((state) => state.getRecipeById(Number(id)));
@@ -159,3 +159,5 @@ export const EditRecipeForm = () => {
     </form>
   );
 };
+
+export default EditRecipeForm;
