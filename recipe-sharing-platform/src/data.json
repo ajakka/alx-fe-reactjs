@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Spaghetti Carbonara",
+    "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
+    "image": "/api/placeholder/400/300"
+  },
+  {
+    "id": 2,
+    "title": "Chicken Tikka Masala",
+    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
+    "image": "/api/placeholder/400/300"
+  },
+  {
+    "id": 3,
+    "title": "Classic Caesar Salad",
+    "summary": "Crisp romaine lettuce, homemade croutons, and parmesan cheese tossed in creamy Caesar dressing.",
+    "image": "/api/placeholder/400/300"
+  },
+  {
+    "id": 4,
+    "title": "Beef Wellington",
+    "summary": "Tender beef fillet wrapped in mushroom duxelles, prosciutto, and golden puff pastry.",
+    "image": "/api/placeholder/400/300"
+  },
+  {
+    "id": 5,
+    "title": "Vegetable Stir-Fry",
+    "summary": "Fresh seasonal vegetables stir-fried with ginger, garlic, and soy sauce.",
+    "image": "/api/placeholder/400/300"
+  },
+  {
+    "id": 6,
+    "title": "Chocolate Lava Cake",
+    "summary": "Decadent chocolate cake with a molten chocolate center, served warm.",
+    "image": "/api/placeholder/400/300"
+  }
+]
