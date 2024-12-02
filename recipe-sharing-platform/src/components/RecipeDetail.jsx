@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Clock, Users, ChevronLeft, Scale } from "lucide-react";
+import data from "../data.json";
 
 // Extended mock data with more details
 const recipeData = {
