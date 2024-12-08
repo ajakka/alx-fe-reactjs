@@ -1,79 +1,36 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Search } from "lucide-react";
-import React, { useEffect, useState } from "react";
-import recipeData from "../data.json";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const [recipes, setRecipes] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    // Simulating data fetch
-    setRecipes(recipeData);
+    fetch("/data.json")
+      .then((response) => response.json())
+      .then((data) => setRecipes(data))
+      .catch((error) => console.error("Error fetching recipes:", error));
   }, []);
 
-  const filteredRecipes = recipes.filter(
-    (recipe) =>
-      recipe.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      recipe.summary.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header Section */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 md:px-7">
-          <h1 className="text-3xl font-bold text-gray-900">
-            Recipe Sharing Platform
-          </h1>
-
-          {/* Search Bar */}
-          <div className="mt-4 relative">
-            <div className="relative">
-              <Search
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                size={20}
-              />
-              <input
-                type="text"
-                placeholder="Search recipes..."
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredRecipes.map((recipe) => (
-            <Card
-              key={recipe.id}
-              className="overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer hover:scale-102"
-            >
+    <div className="container mx-auto p-4">
+      <h1 className="text-4xl font-bold mb-8 text-center">Delicious Recipes</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {recipes.map((recipe) => (
+          <Link to={`/recipe/${recipe.id}`} key={recipe.id}>
+            <div className="bg-white shadow-md rounded-lg overflow-hidden transform transition-all duration-300 hover:shadow-lg hover:scale-105">
               <img
                 src={recipe.image}
                 alt={recipe.title}
                 className="w-full h-48 object-cover"
               />
-              <CardHeader className="p-4">
-                <h2 className="text-xl font-semibold text-gray-900">
-                  {recipe.title}
-                </h2>
-              </CardHeader>
-              <CardContent className="p-4 pt-0">
+              <div className="p-6">
+                <h2 className="text-2xl font-semibold mb-2">{recipe.title}</h2>
                 <p className="text-gray-600">{recipe.summary}</p>
-                <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-200">
-                  View Recipe
-                </button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </main>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };
